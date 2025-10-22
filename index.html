@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shah Alam Miyan | Portfolio</title>
+  <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="header">
+    <a href="#home" class="logo">Portfolio</a>
+    <nav class="navbar" id="navbar">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="hamburger" id="hamburger">
+      <span></span><span></span><span></span>
+    </div>
+  </header>
+
+  <section id="home" class="home">
+    <div class="home-content">
+      <h3>Hello, It's Me</h3>
+      <h1>Shah Alam Miyan</h1>
+      <h3>And I'm a <span class="typed-text"></span></h3>
+      <p>
+        I'm Shah Alam Miyan, a web developer with strong expertise in HTML, CSS, Java, and JavaScript. I specialize in
+        building responsive, accessible, and performance-driven websites that align with modern design principles and
+        deliver seamless user experiences.
+      </p>
+
+      <div class="home-sci">
+        <a href="#"><i class='bx bxl-facebook'></i></a>
+        <a href="#"><i class='bx bxl-twitter'></i></a>
+        <a href="#"><i class='bx bxl-instagram'></i></a>
+        <a href="#"><i class='bx bxl-github'></i></a>
+        <a href="#"><i class='bx bxl-linkedin-square'></i></a>
+      </div>
+
+      <a href="#" class="btn-box">More About Me</a>
+    </div>
+
+    <div class="profile-container">
+      <div class="profile-image">
+        <img src="Assets/ShahAlamMiyan.png" alt="Shah Alam Miyan" />
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Typing effect
+    const typedText = document.querySelector(".typed-text");
+    const words = ["Web Developer"];
+    let wordIndex = 0, charIndex = 0, isDeleting = false;
+
+    function type() {
+      const currentWord = words[wordIndex];
+      const currentChar = currentWord.substring(0, charIndex);
+      typedText.textContent = currentChar;
+
+      if (!isDeleting && charIndex < currentWord.length) {
+        charIndex++;
+        setTimeout(type, 150);
+      } else if (isDeleting && charIndex > 0) {
+        charIndex--;
+        setTimeout(type, 100);
+      } else {
+        isDeleting = !isDeleting;
+        wordIndex = !isDeleting ? (wordIndex + 1) % words.length : wordIndex;
+        setTimeout(type, 1000);
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", type);
+
+    // Hamburger toggle
+    const hamburger = document.getElementById("hamburger");
+    const navbar = document.getElementById("navbar");
+
+    hamburger.addEventListener("click", () => {
+      navbar.classList.toggle("active");
+      hamburger.classList.toggle("open");
+    });
+  </script>
+</body>
+</html>
